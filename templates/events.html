@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Event Anime - WEABOO{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: linear-gradient(135deg, #a084ca, #8e44ad); color: white;">
+    <div class="container text-center">
+        <h2 class="fw-bold">Semua Event</h2>
+        <p>Temukan dan pesan tiket event anime, manga, dan budaya Jepang favoritmu dengan mudah melalui WEABOO.</p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row g-4">
+        {% if events %}
+            {% for event in events %}
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://placehold.co/600x400?text={{ event.title }}" class="card-img-top" alt="{{ event.title }}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ event.title }}</h5>
+                            <p class="card-text">{{ event.description[:100] }}...</p>
+                            <p class="fw-bold text-primary">Rp{{ "{:,}".format(event.price) }}</p>
+                            <a href="{{ url_for('detail_event', event_id=event.id) }}" class="btn btn-gradient mt-auto w-100">Pesan Tiket</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="text-center">
+                <p>Belum ada event tersedia saat ini.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

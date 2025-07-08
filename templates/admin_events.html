@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Admin - Kelola Event{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4">Kelola Event</h2>
+    <a href="{{ url_for('add_event') }}" class="btn btn-gradient mb-3">Tambah Event Baru</a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Judul</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.description[:50] }}...</td>
+                    <td>Rp{{ event.price }}</td>
+                    <td>{{ event.stock }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_event', event_id=event.id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <form action="{{ url_for('delete_event', event_id=event.id) }}" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Yakin ingin menghapus event ini?')">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

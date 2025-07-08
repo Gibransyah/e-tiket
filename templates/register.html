@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Daftar - WEABOO{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5 pt-5">
+    <div class="card p-4 shadow-sm" style="max-width: 450px; width: 100%; border-radius: 12px;">
+        <div class="text-center mb-3">
+            <div style="font-size:50px;">🎟️</div>
+            <h3 class="fw-bold">Bergabung dengan WEABOO</h3>
+            <p class="text-muted">Buat akun untuk mulai memesan tiket event anime favorit Anda.</p>
+        </div>
+        <form method="POST">
+            <div class="row">
+                <div class="mb-3 col">
+                    <label>Nama Depan</label>
+                    <input type="text" name="first_name" class="form-control" placeholder="Nama depan Anda" required>
+                </div>
+                <div class="mb-3 col">
+                    <label>Nama Belakang</label>
+                    <input type="text" name="last_name" class="form-control" placeholder="Nama belakang Anda" required>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="emailanda@contoh.com" required>
+            </div>
+            <div class="mb-3 text-start">
+                <label>Kata Sandi</label>
+                <input type="password" name="password" class="form-control" placeholder="Buat kata sandi yang kuat" required>
+            </div>
+            <div class="mb-3 text-start">
+                <label>Konfirmasi Kata Sandi</label>
+                <input type="password" name="confirm_password" class="form-control" placeholder="Konfirmasi kata sandi Anda" required>
+            </div>
+            <div class="form-check mb-3 text-start">
+                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                <label class="form-check-label" for="termsCheck">
+                    Saya setuju dengan <a href="#" class="text-decoration-none">Syarat Layanan</a> dan <a href="#" class="text-decoration-none">Kebijakan Privasi</a>.
+                </label>
+            </div>
+            <button type="submit" class="btn btn-gradient w-100">Buat Akun</button>
+        </form>
+        <div class="text-center text-muted my-3">ATAU LANJUTKAN DENGAN</div>
+        <div class="d-flex gap-2 mb-3">
+            <button class="btn btn-outline-secondary w-50">Google</button>
+            <button class="btn btn-outline-secondary w-50">Facebook</button>
+        </div>
+        <div class="text-center">
+            <p class="text-muted">Sudah punya akun? <a href="{{ url_for('login') }}">Masuk</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

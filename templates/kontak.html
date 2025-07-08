@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Kontak WEABOO{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: linear-gradient(135deg, #a084ca, #8e44ad); color: white;">
+    <div class="container text-center">
+        <h2 class="fw-bold">Hubungi WEABOO</h2>
+        <p>Kami siap membantu Anda! Silakan hubungi kami untuk pertanyaan, saran, atau kerja sama event anime dan budaya Jepang.</p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h3 class="fw-bold mb-3">Informasi Kontak</h3>
+            <p>Jika Anda memiliki pertanyaan terkait tiket, event, atau kerja sama dengan WEABOO, jangan ragu untuk menghubungi kami melalui kontak berikut:</p>
+            <ul class="list-unstyled">
+                <li><strong>Email:</strong> support@weaboo.id</li>
+                <li><strong>Telepon:</strong> +62 812-3456-7890</li>
+                <li><strong>Alamat:</strong> Jl. Sakura No. 10, Yogyakarta</li>
+            </ul>
+            <p>Anda juga dapat mengikuti kami di media sosial untuk update event terbaru:</p>
+            <a href="#" class="btn btn-gradient btn-sm">Instagram</a>
+            <a href="#" class="btn btn-outline-secondary btn-sm">Facebook</a>
+            <a href="#" class="btn btn-outline-secondary btn-sm">Twitter</a>
+        </div>
+        <div class="col-md-6">
+            <h3 class="fw-bold mb-3">Kirim Pesan</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="emailanda@contoh.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Pesan</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Tulis pesan Anda disini..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-gradient w-100">Kirim Pesan</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

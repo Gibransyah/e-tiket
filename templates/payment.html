@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Pembayaran - WEABOO{% endblock %}
+{% block content %}
+<div class="container py-5 text-center">
+    <h2 class="fw-bold mb-3">Pembayaran</h2>
+    <p>Silakan transfer sebesar <strong>Rp{{ transaction.amount }}</strong> untuk event:</p>
+    <h4 class="fw-bold">{{ transaction.event.title }}</h4>
+    <div class="my-3">
+        <img src="{{ url_for('static', filename='qr_sample.png') }}" alt="QRIS" width="200">
+    </div>
+    <p>Kirim ke QRIS / rekening berikut: <strong>1234567890 (Bank Anime)</strong></p>
+    <form method="POST">
+        <button class="btn btn-gradient mt-3">Saya Sudah Membayar</button>
+    </form>
+</div>
+{% endblock %}

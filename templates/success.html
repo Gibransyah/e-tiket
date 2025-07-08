@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Tiket Berhasil Dibeli - {{ event.title }}{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: linear-gradient(135deg, #a084ca, #8e44ad); color: white;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-2">🎉 Tiket Berhasil Dibeli!</h2>
+        <p class="mb-0">Terima kasih telah membeli tiket untuk <strong>{{ event.title }}</strong>.</p>
+        <p>Tunjukkan QR Code ini saat hadir di event.</p>
+    </div>
+</section>
+
+<section class="container py-5 d-flex flex-column align-items-center">
+    <div class="card p-4 shadow-sm text-center" style="max-width: 400px; width: 100%; border-radius: 12px;">
+        <img src="{{ url_for('static', filename='qr_codes/' ~ qr_image) }}" alt="QR Code Tiket {{ event.title }}" class="img-fluid mb-3 rounded" style="max-width: 250px;">
+        <h5 class="fw-bold mb-3">{{ event.title }}</h5>
+        <p class="text-muted mb-4">Silakan screenshot atau simpan QR Code ini untuk memudahkan check-in saat event.</p>
+        <a href="{{ url_for('home') }}" class="btn btn-gradient w-100">⬅️ Kembali ke Beranda</a>
+    </div>
+</section>
+{% endblock %}

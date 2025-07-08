@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Daftar Event Anime - WEABOO{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold text-center mb-4">Daftar Event Anime</h2>
+<p class="text-center text-muted mb-5">Temukan dan pesan tiket event anime, manga, dan budaya Jepang favoritmu dengan mudah melalui WEABOO.</p>
+
+<div class="row g-4">
+    {% for event in events %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+                <img src="https://placehold.co/600x350?text={{ event.title | urlencode }}" class="card-img-top rounded-top-4" alt="{{ event.title }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">{{ event.title }}</h5>
+                    <p class="card-text text-muted">{{ event.description[:100] }}...</p>
+                    <p class="fw-bold text-purple">Rp{{ "{:,}".format(event.price) }}</p>
+                    <a href="{{ url_for('detail_event', event_id=event.id) }}" class="btn btn-gradient mt-auto">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p class="text-center">Belum ada event tersedia saat ini.</p>
+    {% endfor %}
+</div>
+{% endblock %}

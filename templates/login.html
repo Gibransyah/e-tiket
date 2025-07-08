@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Masuk - WEABOO{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5 py-5">
+    <div class="card p-4 shadow-sm" style="max-width: 400px; width: 100%; border-radius: 12px;">
+        <div class="text-center mb-3">
+            <div style="font-size:50px;">🎟️</div>
+            <h3 class="fw-bold">Selamat Datang Kembali</h3>
+            <p class="text-muted">Masuk ke akun WEABOO Anda untuk mengakses tiket dan pemesanan Anda.</p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="mb-3 text-start">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Masukkan email Anda" required>
+            </div>
+            <div class="mb-3 text-start">
+                <label>Kata Sandi</label>
+                <input type="password" name="password" class="form-control" placeholder="Masukkan kata sandi Anda" required>
+            </div>
+            <button type="submit" class="btn btn-gradient w-100">Masuk</button>
+        </form>
+        <div class="text-center mt-3">
+            <p class="text-muted">Belum punya akun? <a href="{{ url_for('register') }}">Daftar</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

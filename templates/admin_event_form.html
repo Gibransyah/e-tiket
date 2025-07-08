@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ action }} Event{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4">{{ action }} Event</h2>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label>Judul Event</label>
+            <input type="text" name="title" class="form-control" value="{{ event.title if event else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Deskripsi</label>
+            <textarea name="description" class="form-control" rows="4" required>{{ event.description if event else '' }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label>Harga (Rp)</label>
+            <input type="number" name="price" class="form-control" value="{{ event.price if event else '' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Stok Tiket</label>
+            <input type="number" name="stock" class="form-control" value="{{ event.stock if event else '' }}" required>
+        </div>
+        <button type="submit" class="btn btn-gradient">{{ action }}</button>
+        <a href="{{ url_for('admin_events') }}" class="btn btn-secondary ms-2">Batal</a>
+    </form>
+</div>
+{% endblock %}
